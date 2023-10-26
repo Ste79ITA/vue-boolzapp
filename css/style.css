@@ -57,6 +57,9 @@ ul {
 .text-footer {
   height: 69px;
   background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 9px 15px;
 }
 
 .text-container {
@@ -71,4 +74,14 @@ ul {
 .search-bar {
   height: 47px;
   background-color: #fafafa;
+}
+
+.my-avatar-img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+h5 {
+  font-size: 15px;
+  font-weight: 600;
 }
