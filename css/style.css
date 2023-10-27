@@ -67,21 +67,95 @@ ul {
 }
 
 .notification {
+  color: #8fd9fb;
   background-color: #8fd9fb;
   height: 73px;
+  display: flex;
+  align-items: center;
+  padding: 9px 15px;
+}
+
+.icon-container {
+  background-color: white;
+  border-radius: 50%;
+  padding: 11px;
+  aspect-ratio: 1;
+  margin-right: 15px;
+}
+
+.icon-container > i {
+  font-size: 22px;
 }
 
 .search-bar {
   height: 47px;
   background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* USER CARD */
 
 .my-avatar-img {
   width: 50px;
   border-radius: 50%;
   margin-right: 16px;
 }
+
+.my-name {
+  flex-grow: 1;
+}
+
+.options > i {
+  color: #a1a1a1;
+  font-size: 18px;
+}
+
 h5 {
   font-size: 15px;
   font-weight: 600;
+  color: black;
+}
+
+.notify-title {
+  color: black;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+p {
+  color: black;
+  font-size: 13px;
+}
+
+/* CONTACT CARDS */
+
+.contact {
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  border-top: 1px solid #cdcdcd;
+}
+
+.avatar-img {
+  width: 55px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.contact-title {
+  color: black;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.last-message {
+  color: #a6a8a8;
+  line-height: 1.3em;
+}
+
+.hover {
+  background-color: #e8eaea;
 }

@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boolzapp</title>
+    <script
+      src="https://kit.fontawesome.com/6bbc3537db.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true,
+      };
+    </script>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
@@ -26,15 +35,45 @@
                   <div class="my-name">
                     <h5>Stefano</h5>
                   </div>
-                  <div class="options"></div>
+                  <div class="options">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
                 </div>
-                <div class="notification"></div>
-                <div class="search-bar"></div>
+                <div class="notification">
+                  <div class="icon-container">
+                    <i class="fa-solid fa-bell-slash"></i>
+                  </div>
+                  <div>
+                    <h5 class="notify-title">
+                      Ricevi notifiche di nuovi messaggi
+                    </h5>
+                    <p>Lorem ipsum dolor sit amet?</p>
+                  </div>
+                </div>
+                <div class="search-bar">
+                  <input
+                    type="text"
+                    placeholder="Cerca o inizia una nuova chat"
+                  />
+                </div>
               </div>
-              <div class="contacts">
-                <ul class="users">
-                  <li class="user">GINOPINO</li>
-                </ul>
+              <div class="contacts-container">
+                <ul class="contacts">
+                  <li class="contact" 
+                  v-for='(contact, index) in contacts' 
+                  key='index' 
+                  @mouseenter='hover(index)'
+                  @mouseleave='hover(index)'
+                  :class="index === currentIndex ? 'hover' : '' "
+                  >
+                    <img class="avatar-img" :src="contact.avatar" :alt="contact.avatar" />
+                    <div>
+                      <h5 class="contact-title">{{ contact.name }}</h5>
+                      <p class="last-message">
+                        {{ contact.messages[contact.messages.length - 1].message }}
+                      </p>
+                    </div>
+                  </li>                
               </div>
             </div>
             <div class="text">
