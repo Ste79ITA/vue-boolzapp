@@ -250,8 +250,9 @@ p {
 /* TEXT FOOTER */
 
 .text-footer {
-  padding: 10px;
+  padding: 10px 0px;
   display: flex;
+  flex-shrink: 0;
 }
 
 .message-input {
@@ -278,6 +279,7 @@ p {
 
 .text-container {
   padding: 50px 75px;
+  overflow-y: scroll;
 }
 
 .message-container {
