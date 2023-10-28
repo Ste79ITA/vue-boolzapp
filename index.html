@@ -20,7 +20,6 @@
     <div id="app">
       <section>
         <div class="container">
-          <div class="green"></div>
           <div class="app">
             <div class="users-container">
               <div class="header">
@@ -51,7 +50,11 @@
                   </div>
                 </div>
                 <div class="search-bar">
+                  <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </div>
                   <input
+                    class="contact-search"
                     type="text"
                     placeholder="Cerca o inizia una nuova chat"
                   />
@@ -59,27 +62,83 @@
               </div>
               <div class="contacts-container">
                 <ul class="contacts">
-                  <li class="contact" 
-                  v-for='(contact, index) in contacts' 
-                  key='index' 
-                  @mouseenter='hover(index)'
-                  @mouseleave='hover(index)'
-                  :class="index === currentIndex ? 'hover' : '' "
+                  <li
+                    class="contact"
+                    v-for="(contact, index) in contacts"
+                    key="index"
+                    @mouseenter="hover(index)"
+                    @mouseleave="hover(index)"
+                    :class="index === currentIndex ? 'hover' : '' "
                   >
-                    <img class="avatar-img" :src="contact.avatar" :alt="contact.avatar" />
+                    <img
+                      class="avatar-img"
+                      :src="contact.avatar"
+                      :alt="contact.avatar"
+                    />
                     <div>
                       <h5 class="contact-title">{{ contact.name }}</h5>
                       <p class="last-message">
-                        {{ contact.messages[contact.messages.length - 1].message }}
+                        {{ contact.messages[contact.messages.length - 1].message
+                        }}
                       </p>
                     </div>
-                  </li>                
+                    <div class="contact-time">15.30</div>
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="text">
-              <div class="text-header"></div>
-              <div class="text-container"></div>
-              <div class="text-footer"></div>
+              <div class="text-header">
+                <div class="header-contact">
+                  <img class="avatar-img" src="./img/avatar_5.jpg" />
+                  <div class="header-contact-text">
+                    <h5 class="contact-title">GINO</h5>
+                    <p class="last-message">
+                      Lorem ipsum dolor sit amet consectetur
+                    </p>
+                  </div>
+                  <div class="text-header-icons">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="text-container">
+                <ul class="message-container">
+                  <li class="message sent">
+                    <div class="message-text">Ciao come stai?</div>
+                    <div class="message-time">15.30</div>
+                  </li>
+                  <li class="message received">
+                    <div class="message-text">
+                      Bene grazie! Stasera ci vediamo?
+                    </div>
+                    <div class="message-time">15.30</div>
+                  </li>
+                  <li class="message sent">
+                    <div class="message-text">
+                      Mi piacerebbe ma devo andare a fare la spesa
+                    </div>
+                    <div class="message-time">15.30</div>
+                  </li>
+                  <li class="message received">
+                    <div class="message-text">Ciao bello</div>
+                    <div class="message-time">15.30</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="text-footer">
+                <div class="text-footer-icon">
+                  <i class="fa-sharp fa-regular fa-face-smile"></i>
+                </div>
+                <div class="message-input">
+                  <input type="text" placeholder="Scrivi messaggio" />
+                </div>
+                <div class="text-footer-icon">
+                  <i class="fa-solid fa-microphone"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
