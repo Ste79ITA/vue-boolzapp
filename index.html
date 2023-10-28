@@ -67,8 +67,6 @@
                     @click="active(index)"
                     v-for="(contact, index) in contacts"
                     key="index"
-                    @mouseenter="hover(index)"
-                    @mouseleave="hover(index)"
                     :class="index === activeContact ? 'active' : ''"
                   >
                     <img

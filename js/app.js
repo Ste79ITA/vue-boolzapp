@@ -14,7 +14,7 @@ createApp({
         status: 'received',
       },
       activeContact: 0,
-      currentIndex: 0,
+      // currentIndex: 0,
       contacts: [
         {
           name: 'Michele',
@@ -181,9 +181,6 @@ createApp({
     };
   },
   methods: {
-    hover(index) {
-      // this.currentIndex = index;
-    },
     active(index) {
       this.activeContact = index;
       console.log(this.activeContact);
