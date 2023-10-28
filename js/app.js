@@ -3,6 +3,16 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      newMessage: {
+        date: '10/01/2020 15:50:00',
+        message: '',
+        status: 'sent',
+      },
+      responseMessage: {
+        date: '10/01/2020 15:50:00',
+        message: 'Meco!',
+        status: 'received',
+      },
       activeContact: 0,
       currentIndex: 0,
       contacts: [
@@ -177,6 +187,15 @@ createApp({
     active(index) {
       this.activeContact = index;
       console.log(this.activeContact);
+    },
+    sendMessage() {
+      let message = { ...this.newMessage };
+      this.contacts[this.activeContact].messages.push(message);
+      this.newMessage.message = '';
+      setTimeout(this.fakeMessage, 1000);
+    },
+    fakeMessage() {
+      this.contacts[this.activeContact].messages.push(this.responseMessage);
     },
   },
   mounted() {},
