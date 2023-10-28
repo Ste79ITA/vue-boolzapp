@@ -136,6 +136,10 @@ menu {
   height: 100%;
   overflow-y: scroll;
 }
+
+.contacts::-webkit-scrollbar {
+  display: none;
+}
 /* USER CARD */
 
 .my-avatar-img {
@@ -282,6 +286,10 @@ p {
   overflow-y: scroll;
 }
 
+.text-container::-webkit-scrollbar {
+  display: none;
+}
+
 .message-container {
   display: flex;
   flex-direction: column;
@@ -296,15 +304,26 @@ p {
   flex-direction: column;
   justify-content: center;
 }
+.message:hover .message-option {
+  opacity: 100;
+}
 
 .message-text {
-  padding: 0 px;
+  padding-right: 15px;
+  padding-bottom: 3px;
 }
 
 .message-time {
   text-align: end;
   color: #a1a1a1;
   font-size: 10px;
+}
+
+.message-option {
+  text-align: end;
+  color: #a1a1a1;
+  margin-top: -12px;
+  opacity: 0;
 }
 
 .sent {
