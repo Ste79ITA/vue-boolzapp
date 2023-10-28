@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      activeContact: 0,
       currentIndex: 0,
       contacts: [
         {
@@ -171,7 +172,11 @@ createApp({
   },
   methods: {
     hover(index) {
-      this.currentIndex = index;
+      // this.currentIndex = index;
+    },
+    active(index) {
+      this.activeContact = index;
+      console.log(this.activeContact);
     },
   },
   mounted() {},

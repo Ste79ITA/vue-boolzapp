@@ -64,25 +64,27 @@
                 <ul class="contacts">
                   <li
                     class="contact"
+                    @click="active(index)"
                     v-for="(contact, index) in contacts"
                     key="index"
                     @mouseenter="hover(index)"
                     @mouseleave="hover(index)"
-                    :class="index === currentIndex ? 'hover' : '' "
+                    :class="index === activeContact ? 'active' : ''"
                   >
                     <img
                       class="avatar-img"
                       :src="contact.avatar"
                       :alt="contact.avatar"
                     />
-                    <div>
+                    <div class="contact-content">
                       <h5 class="contact-title">{{ contact.name }}</h5>
                       <p class="last-message">
-                        {{ contact.messages[contact.messages.length - 1].message
-                        }}
+                        {{ contact.messages.at(-1).message }}
                       </p>
                     </div>
-                    <div class="contact-time">15.30</div>
+                    <div class="contact-time">
+                      {{ contact.messages.at(-1).date.slice(11,16) }}
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -90,11 +92,16 @@
             <div class="text">
               <div class="text-header">
                 <div class="header-contact">
-                  <img class="avatar-img" src="./img/avatar_5.jpg" />
+                  <img
+                    :class="contacts[activeContact].avatar"
+                    src="./img/avatar_5.jpg"
+                  />
                   <div class="header-contact-text">
-                    <h5 class="contact-title">GINO</h5>
+                    <h5 class="contact-title">
+                      {{ contacts[activeContact].name }}
+                    </h5>
                     <p class="last-message">
-                      Lorem ipsum dolor sit amet consectetur
+                      {{ contacts[activeContact].messages.at(-1).message }}
                     </p>
                   </div>
                   <div class="text-header-icons">
@@ -106,25 +113,15 @@
               </div>
               <div class="text-container">
                 <ul class="message-container">
-                  <li class="message sent">
-                    <div class="message-text">Ciao come stai?</div>
-                    <div class="message-time">15.30</div>
-                  </li>
-                  <li class="message received">
-                    <div class="message-text">
-                      Bene grazie! Stasera ci vediamo?
+                  <li
+                    class="message"
+                    :class="message.status"
+                    v-for="(message, index) in contacts[activeContact].messages"
+                  >
+                    <div class="message-text">{{ message.message }}</div>
+                    <div class="message-time">
+                      {{ message.date.slice(11,16) }}
                     </div>
-                    <div class="message-time">15.30</div>
-                  </li>
-                  <li class="message sent">
-                    <div class="message-text">
-                      Mi piacerebbe ma devo andare a fare la spesa
-                    </div>
-                    <div class="message-time">15.30</div>
-                  </li>
-                  <li class="message received">
-                    <div class="message-text">Ciao bello</div>
-                    <div class="message-time">15.30</div>
                   </li>
                 </ul>
               </div>
