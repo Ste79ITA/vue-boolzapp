@@ -184,7 +184,6 @@ createApp({
   methods: {
     active(index) {
       this.activeContact = index;
-      console.log(this.activeContact);
     },
     sendMessage() {
       let message = { ...this.newMessage };

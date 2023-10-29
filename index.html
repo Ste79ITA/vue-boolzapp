@@ -68,7 +68,7 @@
                     @click="active(index)"
                     v-for="(contact, index) in contacts"
                     key="index"
-                    :class="index === activeContact ? 'active' : ''"
+                    :class="{'active': index === activeContact}"
                   >
                     <img
                       class="avatar-img"
@@ -91,10 +91,7 @@
             <div class="text">
               <div class="text-header">
                 <div class="header-contact">
-                  <img
-                    :class="contacts[activeContact].avatar"
-                    src="./img/avatar_5.jpg"
-                  />
+                  <img :src="contacts[activeContact].avatar" />
                   <div class="header-contact-text">
                     <h5 class="contact-title">
                       {{ contacts[activeContact].name }}
