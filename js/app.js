@@ -194,6 +194,9 @@ createApp({
     fakeMessage() {
       this.contacts[this.activeContact].messages.push(this.responseMessage);
     },
+    deleteMessage() {
+      console.log('dovrebbe cancellare il messaggio');
+    },
   },
   mounted() {},
 }).mount('#app');

@@ -137,9 +137,6 @@ menu {
   overflow-y: scroll;
 }
 
-.contacts::-webkit-scrollbar {
-  display: none;
-}
 /* USER CARD */
 
 .my-avatar-img {
@@ -186,6 +183,7 @@ p {
 
 .contact:hover {
   background-color: #eaeaea;
+  cursor: pointer;
 }
 
 .contact-time {
@@ -324,6 +322,10 @@ p {
   color: #a1a1a1;
   margin-top: -12px;
   opacity: 0;
+}
+
+.message-option > i {
+  cursor: pointer;
 }
 
 .sent {

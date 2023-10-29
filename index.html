@@ -115,7 +115,10 @@
                     v-for="(message, index) in contacts[activeContact].messages"
                   >
                     <div class="message-option">
-                      <i class="fa-solid fa-chevron-down"></i>
+                      <i
+                        class="fa-solid fa-chevron-down"
+                        @click="deleteMessage()"
+                      ></i>
                     </div>
                     <div class="message-text">{{ message.message }}</div>
                     <div class="message-time">
