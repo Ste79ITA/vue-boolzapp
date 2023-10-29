@@ -21,7 +21,9 @@
       <section>
         <div class="container">
           <div class="app">
+            <!-- USER CONTAINER -->
             <div class="users-container">
+              <!-- USER HEADER -->
               <div class="header">
                 <div class="user-header">
                   <div class="my-avatar">
@@ -38,6 +40,7 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </div>
                 </div>
+                <!-- NOTIFICATION -->
                 <div class="notification">
                   <div class="icon-container">
                     <i class="fa-solid fa-bell-slash"></i>
@@ -49,6 +52,7 @@
                     <p>Lorem ipsum dolor sit amet?</p>
                   </div>
                 </div>
+                <!-- USER SEARCH BAR -->
                 <div class="search-bar">
                   <div class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -58,10 +62,12 @@
                     type="text"
                     placeholder="Cerca o inizia una nuova chat"
                     v-model="contactSearch"
+                    @keyup="search()"
                   />
                 </div>
               </div>
               <div class="contacts-container">
+                <!-- CONTACTS -->
                 <ul class="contacts">
                   <li
                     class="contact"
@@ -88,7 +94,9 @@
                 </ul>
               </div>
             </div>
+            <!-- TEXT CONTAINER -->
             <div class="text">
+              <!-- TEXT HEADER -->
               <div class="text-header">
                 <div class="header-contact">
                   <img :src="contacts[activeContact].avatar" />
@@ -107,17 +115,28 @@
                   </div>
                 </div>
               </div>
+              <!-- TEXT CONTAINER -->
               <div class="text-container">
                 <ul class="message-container">
                   <li
                     class="message"
                     :class="message.status"
                     v-for="(message, index) in contacts[activeContact].messages"
+                    @mouseleave="dropDownShow = false"
                   >
                     <div class="message-option">
+                      <div
+                        class="dropDown"
+                        :class="{'showDropDown': dropDownShow === true}"
+                      >
+                        <div>Message info</div>
+                        <div class="deleteMsg" @click="deleteMsg(index)">
+                          Delete message
+                        </div>
+                      </div>
                       <i
                         class="fa-solid fa-chevron-down"
-                        @click="deleteMessage()"
+                        @click="dropDown()"
                       ></i>
                     </div>
                     <div class="message-text">{{ message.message }}</div>
@@ -127,6 +146,7 @@
                   </li>
                 </ul>
               </div>
+              <!-- TEXT FOOTER -->
               <div class="text-footer">
                 <div class="text-footer-icon">
                   <i class="fa-sharp fa-regular fa-face-smile"></i>

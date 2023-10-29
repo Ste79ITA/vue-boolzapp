@@ -134,7 +134,7 @@ menu {
 
 .contacts {
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* USER CARD */
@@ -281,11 +281,7 @@ p {
 
 .text-container {
   padding: 50px 75px;
-  overflow-y: scroll;
-}
-
-.text-container::-webkit-scrollbar {
-  display: none;
+  overflow-y: auto;
 }
 
 .message-container {
@@ -301,7 +297,35 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
+
+.dropDown {
+  position: absolute;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  top: 17px;
+  right: 10px;
+  padding: 20px 20px 20px 40px;
+  border-radius: 5px;
+  line-height: 2.5em;
+  display: none;
+  z-index: 1;
+  color: #393939;
+}
+
+.showDropDown {
+  display: flex;
+}
+
+.deleteMsg {
+  cursor: pointer;
+}
+
 .message:hover .message-option {
   opacity: 100;
 }

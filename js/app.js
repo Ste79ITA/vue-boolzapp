@@ -3,15 +3,16 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      dropDownShow: false,
       contactSearch: '',
       newMessage: {
-        date: '10/01/2020 15:50:00',
+        date: new Date().toJSON(),
         message: '',
         status: 'sent',
       },
       responseMessage: {
-        date: '10/01/2020 15:50:00',
-        message: 'Meco!',
+        date: new Date().toJSON(),
+        message: 'Ok!',
         status: 'received',
       },
       activeContact: 0,
@@ -194,9 +195,21 @@ createApp({
     fakeMessage() {
       this.contacts[this.activeContact].messages.push(this.responseMessage);
     },
-    deleteMessage() {
-      console.log('dovrebbe cancellare il messaggio');
+    dropDown() {
+      this.dropDownShow = !this.dropDownShow;
     },
+    deleteMsg(index) {
+      if (
+        this.contacts[this.activeContact].messages[index].status === 'received'
+      ) {
+        this.dropDownShow = !this.dropDownShow;
+      } else {
+        this.contacts[this.activeContact].messages[index].message =
+          'Messaggio eliminato.';
+        this.dropDownShow = !this.dropDownShow;
+      }
+    },
+    search() {},
   },
   mounted() {},
 }).mount('#app');
