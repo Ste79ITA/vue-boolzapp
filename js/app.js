@@ -211,6 +211,12 @@ createApp({
       }
     },
   },
-
+  computed: {
+    // filtered() {
+    //   return this.contacts.filter((contact) =>
+    //     contact.name.toLowerCase().includes(this.contactSearch.toLowerCase())
+    //   );
+    // },
+  },
   mounted() {},
 }).mount('#app');

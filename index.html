@@ -69,7 +69,12 @@
                 <!-- CONTACTS -->
                 <ul class="contacts">
                   <!-- CONTACT -->
-                  <template v-for="(contact, index) in contacts" key="index">
+                  <template
+                    v-for="(contact, index) in contacts"
+                    key="index"
+                    v-for="(contact, index) in filtered"
+                    key="index"
+                  >
                     <li
                       class="contact"
                       :class="{'active': index === activeContact}"
@@ -140,7 +145,13 @@
                         @click="dropDown()"
                       ></i>
                     </div>
-                    <div class="message-text">{{ message.message }}</div>
+                    <div
+                      class="message-text"
+                      :class="{'italic': message.message
+                      === 'Messaggio eliminato.'}"
+                    >
+                      {{ message.message }}
+                    </div>
                     <div class="message-time">
                       {{ message.date.slice(11,16) }}
                     </div>
