@@ -43,21 +43,13 @@ menu {
 }
 
 .users-container {
-  background-color: white;
+  background-color: #eaeaea;
   height: 100%;
   width: 400px;
   flex-shrink: 0;
   border-right: 1px solid #cdcdcd;
   display: flex;
   flex-direction: column;
-}
-
-.text {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
 }
 
 .user-header,
@@ -96,6 +88,8 @@ menu {
   font-size: 22px;
 }
 
+/* SEARCH BAR */
+
 .search-bar {
   height: 47px;
   background-color: #eaeaea;
@@ -104,6 +98,10 @@ menu {
   align-items: center;
   padding: 5px;
   border-bottom: 1px solid #cdcdcd;
+}
+
+.search-bar > input:focus {
+  outline-color: #393939;
 }
 
 .search-icon {
@@ -134,7 +132,20 @@ menu {
 
 .contacts {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.contacts::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+.contacts::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+}
+.contacts::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1;
+  border-radius: 5px;
 }
 
 /* USER CARD */
@@ -218,6 +229,14 @@ p {
 
 /* TEXT */
 
+.text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
 /* TEXT HEADER */
 
 .header-contact {
@@ -269,6 +288,10 @@ p {
   padding: 10px 20px;
 }
 
+.message-input > input:focus {
+  outline-color: #393939;
+}
+
 .text-footer-icon {
   display: flex;
   justify-content: center;
@@ -281,7 +304,19 @@ p {
 
 .text-container {
   padding: 50px 75px;
-  overflow-y: auto;
+  overflow-y: scroll;
+}
+
+.text-container::-webkit-scrollbar {
+  display: flex;
+  width: 8px;
+}
+.text-container::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+}
+.text-container::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1;
+  border-radius: 5px;
 }
 
 .message-container {
@@ -309,13 +344,14 @@ p {
   width: 200px;
   height: 100px;
   top: 17px;
-  right: 10px;
+  right: 5px;
   padding: 20px 20px 20px 40px;
   border-radius: 5px;
   line-height: 2.5em;
   display: none;
   z-index: 1;
   color: #393939;
+  box-shadow: 10px 5px 5px rgb(57, 57, 57, 0.4);
 }
 
 .showDropDown {
@@ -324,6 +360,9 @@ p {
 
 .deleteMsg {
   cursor: pointer;
+}
+.deleteMsg:hover {
+  color: red;
 }
 
 .message:hover .message-option {

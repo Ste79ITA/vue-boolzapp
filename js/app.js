@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      showContact: true,
       dropDownShow: false,
       contactSearch: '',
       newMessage: {
@@ -209,7 +210,7 @@ createApp({
         this.dropDownShow = !this.dropDownShow;
       }
     },
-    search() {},
   },
+
   mounted() {},
 }).mount('#app');

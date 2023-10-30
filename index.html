@@ -62,35 +62,36 @@
                     type="text"
                     placeholder="Cerca o inizia una nuova chat"
                     v-model="contactSearch"
-                    @keyup="search()"
                   />
                 </div>
               </div>
               <div class="contacts-container">
                 <!-- CONTACTS -->
                 <ul class="contacts">
-                  <li
-                    class="contact"
-                    @click="active(index)"
-                    v-for="(contact, index) in contacts"
-                    key="index"
-                    :class="{'active': index === activeContact}"
-                  >
-                    <img
-                      class="avatar-img"
-                      :src="contact.avatar"
-                      :alt="contact.avatar"
-                    />
-                    <div class="contact-content">
-                      <h5 class="contact-title">{{ contact.name }}</h5>
-                      <p class="last-message">
-                        {{ contact.messages.at(-1).message }}
-                      </p>
-                    </div>
-                    <div class="contact-time">
-                      {{ contact.messages.at(-1).date.slice(11,16) }}
-                    </div>
-                  </li>
+                  <!-- CONTACT -->
+                  <template v-for="(contact, index) in contacts" key="index">
+                    <li
+                      class="contact"
+                      :class="{'active': index === activeContact}"
+                      @click="active(index)"
+                      v-if="contact.name.toLowerCase().includes(contactSearch.toLowerCase())"
+                    >
+                      <img
+                        class="avatar-img"
+                        :src="contact.avatar"
+                        :alt="contact.avatar"
+                      />
+                      <div class="contact-content">
+                        <h5 class="contact-title">{{ contact.name }}</h5>
+                        <p class="last-message">
+                          {{ contact.messages.at(-1).message }}
+                        </p>
+                      </div>
+                      <div class="contact-time">
+                        {{ contact.messages.at(-1).date.slice(11,16) }}
+                      </div>
+                    </li>
+                  </template>
                 </ul>
               </div>
             </div>
